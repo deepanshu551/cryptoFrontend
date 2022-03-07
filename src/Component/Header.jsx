@@ -19,7 +19,7 @@ import { changeCurrency, userLogout } from '../Redux/Action'
 const Header = () => {
   const { currency } = useSelector(state => state.coinReducer)
   const { user } = useSelector(state => state.userReducer)
-  console.log('header user', user.token)
+
   const dispatch = useDispatch()
   const currencyList = [
     'btc',
@@ -111,7 +111,7 @@ const Header = () => {
   })
   return (
     <ThemeProvider theme={darkTheme}>
-      <AppBar className="headerComponent" color='default' position='static'>
+      <AppBar className='headerComponent' color='default' position='static'>
         <Container>
           <Toolbar>
             <Typography
@@ -122,34 +122,36 @@ const Header = () => {
               Crypto Watch
             </Typography>
 
-            {user.token ? (
-              <Select
-                variant='outlined'
-                value={currency}
-                onChange={e => dispatch(changeCurrency(e.target.value))}
-                defaultValue={currency}
-                style={{
-                  width: 100,
-                  height: 40,
-                  marginRight: 15,
-                  color: '#fff'
-                }}
-              >
-                {currencyList.map(d => {
-                  return (
-                    <MenuItem key={d} value={d.toUpperCase()}>
-                      {d.toUpperCase()}
-                    </MenuItem>
-                  )
-                })}
-              </Select>
-            ) : null}
+            <Select
+              variant='outlined'
+              value={currency}
+              onChange={e => dispatch(changeCurrency(e.target.value))}
+              defaultValue={currency}
+              style={{
+                width: 100,
+                height: 40,
+                marginRight: 15,
+                color: '#fff'
+              }}
+            >
+              {currencyList.map(d => {
+                return (
+                  <MenuItem key={d} value={d.toUpperCase()}>
+                    {d.toUpperCase()}
+                  </MenuItem>
+                )
+              })}
+            </Select>
+
             {user.token ? (
               <Button
                 className={classes.button}
                 style={{ marginLeft: 40, color: 'white' }}
                 variant='outlined'
-                onClick={() =>{ history.push('/login');dispatch(userLogout());} }
+                onClick={() => {
+                  history.push('/login')
+                  dispatch(userLogout())
+                }}
               >
                 Logout
               </Button>

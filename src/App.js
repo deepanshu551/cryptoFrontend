@@ -1,13 +1,13 @@
 import './App.css'
+import React, { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Header from './Pages/Header'
+import Header from './Component/Header'
 import HomePage from './Pages/HomePage'
 import CoinPage from './Pages/CoinPage'
-import LoginPage from './Pages/LoginPage';
+import LoginPage from './Pages/LoginPage'
 import RegisterPage from './Pages/RegisterPage'
 import Error from './Pages/Error'
 import { makeStyles } from '@material-ui/core'
-
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute'
 import Alert from './Component/Alert'
 
@@ -23,17 +23,16 @@ function App () {
   return (
     <Router>
       <div className={classes.App}>
-        <Header/>
-        <Alert className="alert"/>
+        <Header />
+        <Alert />
         <Switch>
-          <ProtectedRoute exact path='/' component={HomePage} />
-          <Route exact path='/login' component={LoginPage} />
-          <Route exact path='/register' component={RegisterPage} />
+          <Route exact path='/' component={HomePage} />{' '}
+          <Route exact path='/login' component={LoginPage} />{' '}
+          <Route exact path='/register' component={RegisterPage} />{' '}
           <ProtectedRoute path='/coin/:id' component={CoinPage} />
-
-          <Route path='**' component={Error} />
-        </Switch>
-      </div>
+          <Route path='**' component={Error} />{' '}
+        </Switch>{' '}
+      </div>{' '}
     </Router>
   )
 }

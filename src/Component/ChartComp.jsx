@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { api } from '../Utils/axios'
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 import { Chart as ChartJS } from 'chart.js/auto'
 import {
   CircularProgress,
@@ -134,8 +134,7 @@ const ChartComp = props => {
     </ThemeProvider>
   )
 }
-ChartComp.propTypes={
-
-id:PropTypes.string
+ChartComp.propTypes = {
+  id: PropTypes.string
 }
 export default ChartComp

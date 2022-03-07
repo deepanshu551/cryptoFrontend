@@ -1,10 +1,12 @@
 import React from 'react'
-import CryptoListComp from "../Component/CryptoListComp";
+import CryptoListComp from '../Component/CryptoListComp'
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
 const HomePage = () => {
-
   return (
-    <><CryptoListComp/></>
+    <ErrorBoundary>
+      <CryptoListComp />
+    </ErrorBoundary>
   )
 }
 

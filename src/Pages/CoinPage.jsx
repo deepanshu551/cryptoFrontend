@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { makeStyles, Typography } from '@material-ui/core'
 import ChartComp from '../Component/ChartComp'
 import parser from 'html-react-parser'
 import { useSelector } from 'react-redux'
 import { api } from '../Utils/axios'
+
 const CoinPage = () => {
   const [loading, setLoading] = useState(false)
   const useStyles = makeStyles(theme => ({
     container: {
-      
-      height:"100%",
+      height: '100%',
       display: 'flex',
       [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
@@ -25,8 +25,7 @@ const CoinPage = () => {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      marginTop: 25,
-      borderRight: '2px solid grey'
+      marginTop: 25
     },
     heading: {
       fontWeight: 'bold',
