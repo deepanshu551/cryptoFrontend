@@ -36,7 +36,7 @@ const classes=useStyles();
   const onSubmit = e => {
     e.preventDefault()
     axios
-      .post('http://localhost:5000/register', { name, email, password })
+      .post('http://cryptomarketbackend.onrender.com/register', { name, email, password })
       .then(d => {
         console.log('token from d', d)
         if (d.data.token) {
